@@ -1,0 +1,103 @@
+.navigation-box {
+  display: flex;
+  height: 4rem;
+  width: 40rem;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.nav-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: all 300ms;
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+  border-radius: 50px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+}
+
+.nav-col:hover {
+  color: rgba(76, 0, 163, 0.5);
+}
+
+.icon {
+  font-size: 1.6rem;
+}
+
+.icon-text {
+  font-size: 1.4rem;
+  font-family: inherit;
+  margin-left: 0.5rem;
+}
+
+.profile-cirlce {
+  height: 4rem;
+  width: 4rem;
+  overflow: hidden;
+  border-radius: 5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-picture {
+  width: 100%;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.profile-picture:hover {
+  transform: scale(1.1);
+}
+
+.profile-dropdown {
+  height: 10rem;
+  width: 10rem;
+  background: #fff;
+  border: 1px solid #eee;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(300%, 100%);
+  visibility: hidden;
+}
+
+.show-profile-dropdown {
+  visibility: visible;
+}
+
+.profile-dropdown-button {
+  font-family: inherit;
+  width: 100%;
+  height: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.profile-dropdown-button:hover {
+  background: rgba(76, 0, 163, 0.2);
+}

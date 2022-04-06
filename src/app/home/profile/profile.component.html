@@ -1,0 +1,48 @@
+<div class="pad" *ngIf="userData">
+      <img
+        src="{{ userData.picture }}"
+        class="user-picture"
+      />
+  <form>
+      <div class="input-field">
+        <label for="name">Your name:</label>
+        <input type="text" name="name" [(ngModel)]="userData.name"/>
+      </div>
+      <div class="input-field">
+        <label for="phone">Your phone:</label>
+        <input type="number" name="phone" [(ngModel)]="userData.phone"/>
+      </div>
+      <div class="input-field">
+        <label for="email">Your email:</label>
+        <input type="email" name="email" [(ngModel)]="userData.email"/>
+      </div>
+      <div class="input-field">
+        <label for="doorno">Your door no:</label>
+        <input type="text" name="doorno" [(ngModel)]="userData.doorno"/>
+      </div>
+      <div class="input-field">
+        <label for="locality">Your locality:</label>
+        <input type="text" name="locality" [(ngModel)]="userData.locality"/>
+      </div>
+      <div class="input-field">
+        <label for="district">Your district:</label>
+        <input type="text" name="district" [(ngModel)]="userData.district"/>
+      </div>
+            <div class="input-field">
+        <label for="state">Your state:</label>
+        <input type="text" name="state" [(ngModel)]="userData.state"/>
+      </div>
+      <div class="input-field">
+        <label for="country">Your country:</label>
+        <input type="text" name="country" [(ngModel)]="userData.country"/>
+      </div>
+            <div class="input-field">
+        <label for="picture">Your picture URL:</label>
+        <input type="url" name="picture" [(ngModel)]="userData.picture"/>
+      </div>
+      <div class="button-input-field">
+        <button (click)="onSave()">Save</button>
+        <button (click)="onCancel()">Cancel</button>
+      </div>
+  </form>
+</div>

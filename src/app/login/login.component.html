@@ -1,0 +1,50 @@
+<div class="login-page">
+  <div class="login-page-component">
+    <img
+      class="logo"
+      src="../../assets/Sapiens Menswear-logos_transparent.png"
+      alt="logo"
+    />
+    <img
+      class="login-illustration"
+      src="../../assets/register-illustration.png"
+    />
+  </div>
+  <div class="login-page-component">
+    <h1>Login</h1>
+    <span
+      style="font-size: 1.4rem; font-weight: 500; color: red"
+      *ngIf="invalid"
+      >Invalid data fields (or) Internal Server Error</span
+    >
+    <form [formGroup]="userLoginForm">
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          formControlName="email"
+          required
+          placeholder="abc@email.com"
+        />
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input
+          minlength="8"
+          maxlength="8"
+          type="password"
+          formControlName="password"
+          required
+          placeholder="Your password"
+        />
+      </div>
+
+      <button type="button" class="login-button" (click)="onLogin()">
+        LOGIN
+      </button>
+      <button type="button" class="cancel-button" (click)="onCalcel()">
+        CANCEL
+      </button>
+    </form>
+  </div>
+</div>

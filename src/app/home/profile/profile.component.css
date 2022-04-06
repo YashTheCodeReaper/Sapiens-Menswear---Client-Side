@@ -1,0 +1,79 @@
+.pad{
+  width: 100vw;
+  padding: 3rem;
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+form{
+  width: 60%;
+  padding: 3rem;
+  border-radius: 2rem;
+  background: #6201ad;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.user-picture{
+  height: 50rem;
+}
+
+.input-field{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.3rem;
+}
+
+label{
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+input{
+  display: block;
+  border: 4px solid #fff;
+  background: transparent;
+  color: #fff;
+  padding: 1rem;
+  font-family: inherit;
+  border-radius: 1rem;
+  width: 100%;
+  outline: none;
+}
+
+.button-input-field{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+button{
+  background: #fff;
+  border: none;
+  display: inline-block;
+  font-size: 1.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 300ms;
+}
+
+button:nth-child(2){
+  background: rgb(255, 86, 86);
+  color: #fff;
+}

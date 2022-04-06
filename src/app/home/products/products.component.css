@@ -1,0 +1,18 @@
+.cat-product-container {
+  width: 100vw;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+  column-gap: 3rem;
+}
+
+.pad {
+  margin-top: 2rem;
+  width: 100vw;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}

@@ -1,0 +1,81 @@
+<div class="product-card">
+  <div class="product-card-component">
+    <div class="cat-ribbon">{{ product.category }}</div>
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <div class="review-container">
+      <label for="star1"
+        ><i
+          [ngStyle]="{ color: product.rating >= 2 ? '#F6B704' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star1" />
+      <label for="star2"
+        ><i
+          [ngStyle]="{ color: product.rating >= 4 ? '#F6B704' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star2" />
+      <label for="star3"
+        ><i
+          [ngStyle]="{ color: product.rating >= 6 ? '#F6B704' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star3" />
+      <label for="star4"
+        ><i
+          [ngStyle]="{ color: product.rating >= 8 ? '#F6B704' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star4" />
+      <label for="star5"
+        ><i
+          [ngStyle]="{ color: product.rating > 9 ? '#F6B704' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star5" />
+      ({{ getReviewLength(product) }})
+    </div>
+    <div class="price-flex">
+      <p>₹{{ product.mrp }}</p>
+      <p>₹{{ product.price }}</p>
+    </div>
+    <button
+      *ngIf="!product.cart || product.cart.count == 0"
+      type="button"
+      (click)="onAddToCart()"
+      class="product-button"
+    >
+      Add to cart
+    </button>
+    <div *ngIf="product.cart && product.cart.count > 0" class="cart-function">
+      <button (click)="removeItem()">-</button>
+      <div class="p">{{ product.cart.count.toString().padStart(2, "0") }}</div>
+      <button (click)="addItem()">+</button>
+    </div>
+  </div>
+  <div class="product-card-component">
+    <div class="ribbon">
+      {{
+        product.featurette == "TS"
+          ? "TOP SELLING"
+          : product.featurette == "MP"
+          ? "MOST POPULAR"
+          : "FEATURED"
+      }}
+    </div>
+    <div class="discount-tag">
+      -%{{ (((product.mrp - product.price) / product.mrp) * 100).toFixed(0) }}
+    </div>
+    <img
+      class="product-image"
+      src="{{ product.image }}"
+      alt="{{ product.name }}"
+    />
+  </div>
+</div>

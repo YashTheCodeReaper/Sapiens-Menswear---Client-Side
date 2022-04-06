@@ -1,0 +1,38 @@
+<div class="search-container">
+  <div class="search-bar">
+    <i class="icon fa-solid fa-magnifying-glass"></i>
+    <input
+      [(ngModel)]="productSearchText"
+      type="text"
+      name="productSearch"
+      id="productSearch"
+      placeholder="Search products...."
+      (focus)="onSearchFocusIn()"
+      (focusout)="onSearchFocusOut()"
+      (input)="onSearchInput()"
+    />
+  </div>
+  <div
+    class="result-render-box"
+    [ngClass]="{ 'show-result-render-box': showResultRenderBox }"
+  >
+    <div
+    routerLink="/product"
+    [queryParams]="{id: filteredProduct.id}"
+      class="result-render-box-component"
+      *ngFor="let filteredProduct of filteredProducts"
+    >
+      <div class="product-content-flex">
+        <div class="product-title-flex">
+          <h1>{{ filteredProduct.name }}</h1>
+          <h2>{{ filteredProduct.brand }}</h2>
+          <div class="price-flex">
+            <span>₹{{filteredProduct.mrp}}</span>
+            <span>₹{{filteredProduct.price}}</span>
+          </div>
+        </div>
+        <img class="search-product-image" src="{{ filteredProduct.image }}" />
+      </div>
+    </div>
+  </div>
+</div>

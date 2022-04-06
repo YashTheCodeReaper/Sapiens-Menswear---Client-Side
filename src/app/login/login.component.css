@@ -1,0 +1,126 @@
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.login-page-component {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  z-index: 2;
+}
+
+.login-page-component h1 {
+  font-size: 4rem;
+  font-weight: 1000;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.login-page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(76, 0, 163);
+  z-index: 1;
+  clip-path: circle(70% at 100% 50%);
+  animation: bgCircleAnimate ease-in-out infinite 10s;
+}
+
+.logo {
+  height: 10rem;
+}
+
+.login-illustration {
+  width: 50%;
+}
+
+form {
+  width: 40rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3rem;
+  row-gap: 2rem;
+  padding: 4rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: rgba(17, 25, 40, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  justify-content: flex-start;
+  color: #fff;
+}
+
+label {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  font-family: inherit;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 1rem 2rem;
+  color: #fff;
+}
+
+button {
+  background: #fff;
+  border: none;
+  display: inline-block;
+  font-size: 1.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.login-button:hover {
+  background: rgb(103, 174, 255);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-button {
+  background: rgb(255, 49, 49);
+  color: #fff;
+}
+
+.cancel-button:hover {
+  background: rgb(137, 0, 0);
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes bgCircleAnimate {
+  0% {
+    clip-path: circle(70% at 100% 50%);
+  }
+  50% {
+    clip-path: circle(75% at 100% 50%);
+  }
+  100% {
+    clip-path: circle(70% at 100% 50%);
+  }
+}

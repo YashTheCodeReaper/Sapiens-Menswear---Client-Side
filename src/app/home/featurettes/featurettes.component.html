@@ -1,0 +1,57 @@
+<div class="pad">
+  <app-categorybox></app-categorybox>
+  <div class="combo-container-grid">
+    <div
+      class="combo-container-grid-component"
+      *ngFor="let combo of allCombos; let i = index"
+    >
+      <div class="combo-content">
+        <h3>{{ combo.name }}</h3>
+        <p>{{ combo.description }}</p>
+        <button
+          class="combo-button"
+          routerLink="/categoryview"
+          [queryParams]="{ category: 'combo', categoryName: combo.name }"
+          type="button"
+        >
+          Explore!
+        </button>
+      </div>
+      <img src="{{ combo.image }}" class="combo-image" />
+    </div>
+  </div>
+  <div class="featurette-flex">
+    <h1>Top Selling Products</h1>
+    <div class="product-flex" *ngFor="let product of allProducts">
+      <app-featurette
+        *ngIf="product.featurette == 'TS'"
+        [product]="product"
+        [featureRibbon]="topSelling"
+      ></app-featurette>
+    </div>
+  </div>
+  <div class="featurette-flex">
+    <h1>Most Popular Products</h1>
+    <ng-container *ngFor="let product of allProducts">
+      <div class="product-flex">
+        <app-featurette
+          *ngIf="product.featurette == 'MP'"
+          [product]="product"
+          [featureRibbon]="mostPopular"
+        ></app-featurette>
+      </div>
+    </ng-container>
+  </div>
+  <div class="featurette-flex">
+    <h1>Featured Products</h1>
+    <ng-container *ngFor="let product of allProducts">
+      <div class="product-flex">
+        <app-featurette
+          *ngIf="product.featurette == 'FE'"
+          [product]="product"
+          [featureRibbon]="featured"
+        ></app-featurette>
+      </div>
+    </ng-container>
+  </div>
+</div>

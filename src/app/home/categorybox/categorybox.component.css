@@ -1,0 +1,46 @@
+.category-flexbox {
+  display: flex;
+  width: 100vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding-right: 4rem;
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+
+.category-flexbox::-webkit-scrollbar {
+  display: none;
+}
+
+.category-box {
+  min-width: 20rem;
+  height: 14rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  transition: all 400ms;
+  margin-bottom: 1rem;
+}
+
+.category-box:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  background: rgba(76, 0, 163);
+  color: #fff;
+}
+
+.category-box-active {
+  background: rgba(76, 0, 163, 0.1);
+  border: 3px solid rgb(76, 0, 163);
+}
+
+.icon {
+  font-size: 2.2rem;
+}

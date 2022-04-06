@@ -1,0 +1,10 @@
+<div class="pad">
+  <app-categorybox></app-categorybox>
+</div>
+
+<div class="cat-product-container">
+  <app-product
+    *ngFor="let catProduct of catProducts"
+    [product]="catProduct"
+  ></app-product>
+</div>

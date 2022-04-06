@@ -1,0 +1,117 @@
+<div class="register-page">
+  <div class="register-page-component">
+    <img
+      class="logo"
+      src="../../assets/Sapiens Menswear-logos_transparent.png"
+      alt="logo"
+    />
+    <img
+      class="register-illustration"
+      src="../../assets/register-illustration.png"
+    />
+  </div>
+  <div class="register-page-component">
+    <h1>Register</h1>
+    <span
+      style="font-size: 1.4rem; font-weight: 500; color: red"
+      *ngIf="invalid"
+      >Invalid data fields (or) Internal Server Error</span
+    >
+    <form [formGroup]="userRegistrationForm">
+      <div class="input-group">
+        <label for="name">Full Name:</label>
+        <input
+          type="text"
+          formControlName="name"
+          required
+          placeholder="Brenden Eich"
+        />
+      </div>
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          formControlName="email"
+          required
+          placeholder="abc@email.com"
+        />
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input
+          minlength="8"
+          maxlength="8"
+          type="password"
+          formControlName="password"
+          required
+          placeholder="Password must contain 8 characters"
+        />
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="number"
+          formControlName="phone"
+          minlength="10"
+          required
+          placeholder="1234567890"
+        />
+      </div>
+      <div class="input-group">
+        <label for="country">Country:</label>
+        <input
+          type="text"
+          formControlName="country"
+          required
+          placeholder="India..."
+        />
+      </div>
+      <div class="input-group">
+        <label for="doorno">Door no:</label>
+        <input
+          type="text"
+          formControlName="doorno"
+          required
+          placeholder="885"
+        />
+      </div>
+      <div class="input-group">
+        <label for="locality">Locality:</label>
+        <input
+          type="text"
+          formControlName="locality"
+          required
+          placeholder="Gandhi nagar"
+        />
+      </div>
+      <div class="input-group">
+        <label for="district">District:</label>
+        <input
+          type="text"
+          formControlName="district"
+          required
+          placeholder="Kodagu"
+        />
+      </div>
+      <div class="input-group">
+        <label for="state">State:</label>
+        <input
+          type="text"
+          formControlName="state"
+          required
+          placeholder="Karnataka"
+        />
+      </div>
+      <div class="input-group">
+        <label for="picture">Profile Picture URL:</label>
+        <input type="url" formControlName="picture" required="Enter Url" />
+      </div>
+      <button type="button" class="register-button" (click)="onRegister()">
+        REGISTER
+      </button>
+      <button type="button" class="cancel-button" (click)="onCalcel()">
+        CANCEL
+      </button>
+    </form>
+  </div>
+</div>

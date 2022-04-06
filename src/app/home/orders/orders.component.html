@@ -1,0 +1,23 @@
+<div class="pad" *ngIf="orders">
+  <h1>Your order is on da way!...</h1>
+  <div class="order-container" *ngFor="let order of orders">
+    <h1>Order ID: {{ order.orderid }}</h1>
+    <div class="order-item-grid">
+      <div
+        class="order-item-grid-component"
+        *ngFor="let product of order.products"
+      >
+        <div class="order-item-details">
+          <h1>{{ product.id.name }}</h1>
+          <p>Quantity: {{ product.count }} nos</p>
+          <p>Mrp: ₹{{ product.count * product.id.mrp }}</p>
+          <p>Price: ₹{{ product.count * product.id.price }}</p>
+        </div>
+        <div class="order-item-image-container">
+          <img src="{{ product.id.image }}" class="product-image" />
+        </div>
+      </div>
+    </div>
+    <h1>Amount to pay: ₹{{ getTotalAmount(order) }}</h1>
+  </div>
+</div>

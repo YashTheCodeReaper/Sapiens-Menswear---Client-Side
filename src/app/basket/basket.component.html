@@ -1,0 +1,77 @@
+<div class="pad">
+  <div class="backet-grid-component-checkout">
+    <h1>Hey there....Please check out your cart here!</h1>
+    <table class="cart-list-table">
+      <thead>
+        <td>Item</td>
+        <td>Quantity</td>
+        <td>MRP</td>
+        <td>Price</td>
+        <td>Discount</td>
+        <td>Total</td>
+      </thead>
+      <ng-container *ngFor="let product of allProducts">
+        <tr *ngIf="product.cart && product.cart.count > 0">
+          <td>{{ product.name }}</td>
+          <td>{{ product.cart.count }} nos</td>
+          <td>₹{{ product.mrp }}</td>
+          <td>₹{{ product.price }}</td>
+          <td>
+            -{{
+              (((product.mrp - product.price) / product.mrp) * 100).toFixed(0)
+            }}%
+          </td>
+          <td>₹{{ product.price * product.cart.count }}</td>
+        </tr>
+      </ng-container>
+    </table>
+    <table class="cart-summary-table">
+      <thead>
+        <td>Total Items</td>
+        <td>Grand MRP</td>
+        <td>Grand Total</td>
+        <td>Total Savings</td>
+        <td>Total Discount</td>
+      </thead>
+      <tr>
+        <td>{{ getTotalCount() }} nos</td>
+        <td>₹{{ getTotalMrp() }}</td>
+        <td>₹{{ getTotalPrice() }}</td>
+        <td>₹{{ getTotalMrp() - getTotalPrice() }}</td>
+        <td>
+          -{{
+            (((getTotalMrp() - getTotalPrice()) / getTotalMrp()) * 100).toFixed(
+              0
+            )
+          }}%
+        </td>
+      </tr>
+    </table>
+    <div class="checkout-final-box">
+      <div class="address-box">
+        <h1>Deliver to:</h1>
+        <p>{{ userData.name.toUpperCase() }},</p>
+        <p>
+          {{ userData.doorno }}, {{ userData.locality }},
+          {{ userData.district }},
+        </p>
+        <p>{{ userData.state }}, {{ userData.country }},</p>
+        <p>{{ userData.phone }}, {{ userData.email }}.</p>
+      </div>
+      <div class="checkout-button" *ngIf="getTotalCount() > 0">
+        <button (click)="onConfirmOrder()">CONFIRM ORDER</button>
+      </div>
+    </div>
+  </div>
+  <div class="backet-grid-component-items">
+    <h1>Your Items:</h1>
+    <div class="cart-item-flex">
+      <ng-container *ngFor="let product of allProducts; let i = index">
+        <app-cartitem
+          *ngIf="product.cart && product.cart.count > 0"
+          [cartItem]="product"
+        ></app-cartitem>
+      </ng-container>
+    </div>
+  </div>
+</div>

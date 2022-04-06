@@ -1,0 +1,76 @@
+<div class="product-card">
+  <div
+    class="product-image-container"
+    routerLink="/product"
+    [queryParams]="{ id: product.id }"
+  >
+    <img
+      class="product-image"
+      src="{{ product.image }}"
+      alt="{{ product.name }}"
+    />
+    <p class="category-tag">{{ product.category }}</p>
+  </div>
+  <div class="ribbon">{{ featureRibbon }}</div>
+  <div class="product-detail-container">
+    <h1>{{ product.name }}</h1>
+    <p class="brand-tag">{{ product.brand }}</p>
+    <p>{{ product.description }}</p>
+    <div class="product-price-flex">
+      <p>₹{{ product.mrp }}</p>
+      <p>₹{{ product.price }}</p>
+      <p></p>
+    </div>
+    <div class="review-container">
+      <label for="star1"
+        ><i
+          [ngStyle]="{ color: product.rating >= 2 ? '#ffc400' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star1" />
+      <label for="star2"
+        ><i
+          [ngStyle]="{ color: product.rating >= 4 ? '#ffc400' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star2" />
+      <label for="star3"
+        ><i
+          [ngStyle]="{ color: product.rating >= 6 ? '#ffc400' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star3" />
+      <label for="star4"
+        ><i
+          [ngStyle]="{ color: product.rating >= 8 ? '#ffc400' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star4" />
+      <label for="star5"
+        ><i
+          [ngStyle]="{ color: product.rating > 9 ? '#ffc400' : 'white' }"
+          class="fa-solid fa-star"
+        ></i
+      ></label>
+      <input type="radio" id="star5" />
+      ({{ getReviewLength(product) }})
+    </div>
+    <button
+      *ngIf="!product.cart || product.cart.count == 0"
+      type="button"
+      (click)="onAddToCart()"
+      class="product-button"
+    >
+      Add to cart
+    </button>
+    <div *ngIf="product.cart && product.cart.count > 0" class="cart-function">
+      <button (click)="removeItem()">-</button>
+      <div class="p">{{ product.cart.count.toString().padStart(2, "0") }}</div>
+      <button (click)="addItem()">+</button>
+    </div>
+  </div>
+</div>

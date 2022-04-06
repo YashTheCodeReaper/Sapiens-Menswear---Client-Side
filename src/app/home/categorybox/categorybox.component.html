@@ -1,0 +1,27 @@
+<div
+  class="category-flexbox"
+  (mouseleave)="onMouseLeaveCategoryFlex()"
+  (mouseenter)="onMouseEnterCategoryFlex()"
+  id="category-flexbox-scroll"
+  (wheel)="onMouseWheelScroll($event)"
+>
+  <div
+    class="category-box"
+    routerLinkActive="category-box-active"
+    routerLink="/categoryview"
+    [queryParams]="{ category: 'all' }"
+  >
+    <i class="icon fa-solid fa-border-all"></i>
+    <h2>ALL PRODUCTS</h2>
+  </div>
+  <div
+    *ngFor="let category of allCategories"
+    class="category-box"
+    routerLinkActive="category-box-active"
+    routerLink="/categoryview"
+    [queryParams]="{ category: category.name }"
+  >
+    <i class="icon {{ category.icon }}"></i>
+    <h2>{{ category.name.toUpperCase() }}</h2>
+  </div>
+</div>
